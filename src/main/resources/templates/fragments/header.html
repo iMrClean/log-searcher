@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="ru">
+<head>
+    <div th:fragment="header-head">
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="author" content="SKV">
+        <meta name="description" content="LogSearch app">
+        <link th:href="@{/webjars/bootstrap/3.3.7/css/bootstrap.min.css}" rel="stylesheet">
+    </div>
+    <title>LogSearch</title>
+</head>
+<body>
+<div th:fragment="header">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="navbar-nav mr-auto">
+            <div class="nav-item active">
+                <a class="nav-item nav-link active" href="/logSearch">Log Search</a>
+            </div>
+        </div>
+        <div class="navbar-nav">
+            <div class="nav-item">
+                <a class="nav-link" href="/login">Login</a>
+            </div>
+            <div class="nav-item">
+                <a class="nav-link" href="/logout">Logout</a>
+            </div>
+        </div>
+    </nav>
+</div>
+</body>
+</html>

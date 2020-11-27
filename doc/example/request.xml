@@ -1,0 +1,13 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+                  xmlns:ls="http://entities.logsearch.example.com">
+    <soapenv:Header/>
+    <soapenv:Body>
+        <ls:searchInfo>
+            <ls:regularExpression>Warning</ls:regularExpression>
+            <ls:dateIntervals>
+                <ls:dateFrom>2020-10-13T00:00:00</ls:dateFrom>
+                <ls:dateTo>2018-04-01T00:00:00</ls:dateTo>
+            </ls:dateIntervals>
+        </ls:searchInfo>
+    </soapenv:Body>
+</soapenv:Envelope>

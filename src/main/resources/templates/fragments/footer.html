@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <div th:fragment="footer-head">
+        <link rel="stylesheet" th:href="@{/css/footer.css}">
+        <script th:src="@{/webjars/jquery/3.3.1/jquery.min.js}"></script>
+        <script th:src="@{/webjars/bootstrap/3.3.7/js/bootstrap.min.js}"></script>
+    </div>
+</head>
+<body>
+<div th:fragment="footer">
+    <footer class="footer">
+        <div class="container">
+            <p class="text-muted">Copyright &copy;
+                <script>document.write("" + new Date().getFullYear());</script>. All rights reserved.
+            </p>
+        </div>
+    </footer>
+</div>
+</body>
+</html>

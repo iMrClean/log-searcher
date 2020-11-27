@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="info" strict="true" name="Log4j2Config">
+    <Properties>
+        <Property name="common_file">logs/Common.log</Property>
+        <Property name="app_file">logs/Application.log</Property>
+        <Property name="orm_file">logs/Hibernate.log</Property>
+    </Properties>
+    <Appenders>
+        <Console name="STDOUT">
+            <PatternLayout pattern="%d %p %C{1.} [%t] %m%n"/>
+        </Console>
+        <RollingFile name="CommonFile" fileName="${common_file}"
+                     filePattern="${common_file}_%d{yyyy-MM-dd_HH-mm-ss}">
+            <PatternLayout charset="UTF-8" pattern="%d %p %C{1.} [%t] %m%n"/>
+            <Policies>
+                <SizeBasedTriggeringPolicy size="2048Kb"/>
+            </Policies>
+        </RollingFile>
+        <RollingFile name="AppFile" fileName="${app_file}"
+                     filePattern="${app_file}_%d{yyyy-MM-dd_HH-mm-ss}">
+            <PatternLayout charset="UTF-8" pattern="%d %p %C{1.} [%t] %m%n"/>
+            <Policies>
+                <SizeBasedTriggeringPolicy size="2048Kb"/>
+            </Policies>
+        </RollingFile>
+        <RollingFile name="OrmFile" fileName="${orm_file}"
+                     filePattern="${orm_file}_%d{yyyy-MM-dd_HH-mm-ss}">
+            <PatternLayout charset="UTF-8" pattern="%d %p %C{1.} [%t] %m%n"/>
+            <Policies>
+                <SizeBasedTriggeringPolicy size="2048Kb"/>
+            </Policies>
+        </RollingFile>
+    </Appenders>
+<!--    <Loggers>-->
+<!--        <Root level="info" additivity="false">-->
+<!--            <AppenderRef ref="CommonFile"/>-->
+<!--            <AppenderRef ref="STDOUT"/>-->
+<!--        </Root>-->
+<!--        <AsyncLogger name="ru.mos.eirc.ws.erl.msr" level="info" additivity="false">-->
+<!--            <AppenderRef ref="AppFile"/>-->
+<!--            <AppenderRef ref="STDOUT"/>-->
+<!--        </AsyncLogger>-->
+<!--        <AsyncLogger name="org.hibernate" level="info" additivity="false">-->
+<!--            <AppenderRef ref="OrmFile"/>-->
+<!--            <AppenderRef ref="STDOUT"/>-->
+<!--        </AsyncLogger>-->
+<!--    </Loggers>-->
+</Configuration>

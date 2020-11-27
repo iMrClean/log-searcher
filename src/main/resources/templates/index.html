@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org" lang="ru">
+<head>
+    <div th:replace="fragments/header :: header-head"></div>
+    <div th:replace="fragments/footer :: footer-head"></div>
+    <title>Main page</title>
+</head>
+<body style="background-image: url(images/background.jpg)">
+<div th:replace="fragments/header :: header"></div>
+
+<div class="container">
+    <form action="#" th:action="@{/logSearch}" th:object="${searchInfo}" method="post">
+
+        <div class="form-group">
+            <h3><label for="regex" class="label label-primary">Введите регулярное выражение</label></h3>
+            <div class="input-group col-xs-4">
+                <span class="input-group-addon" id="basic-addon1">regex:</span>
+                <input id="regex" class="form-control" type="text" th:field="*{regularExpression}">
+            </div>
+        </div>
+
+        <div class=".col-md-6">
+            <h3><label class="label label-primary">Выберите временные промежутки</label></h3>
+            <table class="table table-bordered table-striped table-hover">
+                <thead>
+                <tr class="row">
+                    <th th:if="*{!dateIntervals.isEmpty()}">#</th>
+                    <th th:if="*{!dateIntervals.isEmpty()}">from</th>
+                    <th th:if="*{!dateIntervals.isEmpty()}">to</th>
+                    <th>
+                        <button type="submit" name="addRow" class="btn btn-default">Add row</button>
+                    </th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="row, rowStat : *{dateIntervals}" class="row">
+                    <td th:text="${rowStat.count}">1</td>
+                    <td>
+                        <label>
+                            <input type="datetime-local" class="form-control"
+                                   th:field="*{dateIntervals[__${rowStat.index}__].dateFrom}"/>
+                        </label>
+                    </td>
+                    <td>
+                        <label>
+                            <input type="datetime-local" class="form-control"
+                                   th:field="*{dateIntervals[__${rowStat.index}__].dateTo}"/>
+                        </label>
+                    </td>
+                    <td>
+                        <button type="submit" name="removeRow" class="btn btn-default" th:value="${rowStat.index}">
+                            Remove row
+                        </button>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="form-group" th:classappend="${#fields.hasErrors('location')} ? has-error : ''">
+            <h3><label for="location" class="label label-primary">Введите расположение логов</label>
+            </h3>
+            <div class="input-group">
+                <span class="input-group-addon" th:text="${path}">@</span>
+                <input id="location" type="text" class="form-control" th:field="*{location}">
+            </div>
+            <span th:if="${#fields.hasErrors('location')}" class="help-block" th:errors="*{location}"></span>
+        </div>
+
+        <div>
+            <h3><label class="label label-primary">Сохранить результат в файл?</label></h3>
+            <div class="btn-group" data-toggle="buttons">
+                <label class="btn btn-default">
+                    <input type="radio" th:field="*{realization}" th:value="true"> Да
+                </label>
+                <label class="btn btn-default active">
+                    <input type="radio" th:field="*{realization}" th:value="false"> Нет
+                </label>
+            </div>
+        </div>
+
+        <div>
+            <h3><label class="label label-primary">Выберите расширение запрошенного файла</label></h3>
+            <label>
+                <select class="form-control-static" th:field="*{fileExtension}">
+                    <option th:each="fileExtension : ${allExtensions}"
+                            th:value="${fileExtension}"
+                            th:text="${fileExtension.name()}">
+                    </option>
+                </select>
+            </label>
+        </div>
+
+        <div>
+            <button style="margin: 15px" type="submit" class="btn btn-lg btn-success">Поиск</button>
+        </div>
+    </form>
+
+</div>
+
+
+<div th:replace="fragments/footer :: footer"></div>
+</body>
+</html>

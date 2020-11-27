@@ -1,0 +1,17 @@
+# Настройки логгирования
+logging:
+  level:
+    org:
+      hibernate:
+        SQL: DEBUG
+        type:
+          descriptor:
+            sql:
+              BasicBinder: TRACE
+application:
+  logs:
+    path: C:/Found logs/
+    fileLink: ""
+    deletionInterval: 5
+    fileExistTime: 2
+    threadsNumber: 32
