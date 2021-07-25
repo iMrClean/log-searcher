@@ -6,6 +6,6 @@
     <jaxb:globalBindings>
         <xjc:simple/>
         <xjc:serializable uid="-1"/>
-        <xjc:javaType adapter="ru.mos.eirc.log.searcher.util.adapter.LocalDateTimeAdapter" name="java.time.LocalDateTime" xmlType="xs:dateTime"/>
+        <xjc:javaType adapter="ru.bmstu.log.searcher.util.LocalDateTimeAdapter" name="java.time.LocalDateTime" xmlType="xs:dateTime"/>
     </jaxb:globalBindings>
 </jaxb:bindings>

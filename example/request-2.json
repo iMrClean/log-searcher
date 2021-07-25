@@ -1,0 +1,13 @@
+{
+  "regularExpression":"Warning",
+  "dateIntervals":
+  [
+    {
+      "dateFrom":"2020-01-01T00:00:00",
+      "dateTo":"2021-12-31T00:00:00"
+    }
+  ],
+  "location" : "/home/anomaly/software/wls12130/user_projects/domains/mydomain/servers/myserver/logs",
+  "realization": "true",
+  "fileExtension": "XML"
+}

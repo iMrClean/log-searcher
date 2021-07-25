@@ -1,0 +1,13 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ls="http://bmstu.ru/logsearch">
+    <soapenv:Header/>
+    <soapenv:Body>
+        <ls:SearchInfo>
+            <ls:DateIntervals>
+                <ls:dateFrom>2020-10-01T00:00:00</ls:dateFrom>
+                <ls:dateTo>2021-10-15T00:00:00</ls:dateTo>
+            </ls:DateIntervals>
+            <ls:location>/home/anomaly/software/wls12130/user_projects/domains/mydomain/servers/myserver/logs</ls:location>
+            <ls:realization>false</ls:realization>
+        </ls:SearchInfo>
+    </soapenv:Body>
+</soapenv:Envelope>
